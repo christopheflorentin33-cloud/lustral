@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christophe Florentin — Responsable Communication Multicanal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS ──────────────────────────────────────────── */
+  :root {
+    --ink:      #1a1a1a;
+    --mid:      #444;
+    --muted:    #888;
+    --rule:     #d8d0c4;
+    --cream:    #f7f4ef;
+    --white:    #ffffff;
+    --accent:   #c0392b;      /* rouge Lustral */
+    --accent2:  #1a3a5c;      /* marine profond */
+    --light-bg: #f0ede8;
+
+    --f-display: 'Barlow Condensed', sans-serif;
+    --f-body:    'Inter', sans-serif;
+
+    --gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  /* ── RESET ───────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--f-body);
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── NAV ─────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--accent2);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 1.15rem;
+    letter-spacing: .12em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* ── HERO ────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    background: var(--accent2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 56px;
+    overflow: hidden;
+  }
+  .hero-text {
+    padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem);
+  }
+  .hero-eyebrow {
+    font-family: var(--f-display);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: .95;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+    margin-bottom: 1.8rem;
+  }
+  .hero-name span {
+    display: block;
+    color: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--f-display);
+    font-weight: 300;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    letter-spacing: .06em;
+    color: rgba(255,255,255,.65);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-bottom: 3rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--f-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-top: .3rem;
+    line-height: 1.3;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 1rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: .85rem 2rem;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .btn-primary { background: var(--accent); color: var(--white); }
+  .btn-primary:hover { background: #a93226; }
+  .btn-outline { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.7); }
+  .btn-outline:hover { border-color: var(--white); color: var(--white); }
+
+  .hero-visual {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a3a5c 0%, #0d2340 100%);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute;
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(7rem, 15vw, 16rem);
+    color: rgba(255,255,255,.04);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -.02em;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 2.5rem 2rem;
+    width: min(340px, 85%);
+    backdrop-filter: blur(4px);
+  }
+  .hero-card-line {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .hero-card-line:last-child { border-bottom: none; }
+  .hero-card-icon {
+    width: 36px; height: 36px;
+    background: rgba(192,57,43,.2);
+    border: 1px solid rgba(192,57,43,.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .hero-card-text { font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.4; }
+  .hero-card-label {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: .15rem;
+  }
+
+  /* ── SECTIONS ────────────────────────────────────────── */
+  section { padding: var(--gap) clamp(1.5rem, 8vw, 8rem); }
+
+  .section-label {
+    font-family: var(--f-display);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -.01em;
+    margin-bottom: 3rem;
+  }
+  .section-title em { color: var(--accent); font-style: normal; }
+
+  /* ── LETTRE ──────────────────────────────────────────── */
+  #lettre { background: var(--cream); }
+  .lettre-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .lettre-meta {
+    position: sticky; top: 5rem;
+  }
+  .lettre-meta-block {
+    margin-bottom: 2rem;
+  }
+  .meta-label {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .4rem;
+  }
+  .meta-val {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .lettre-separator {
+    width: 40px; height: 3px;
+    background: var(--accent);
+    margin: 2rem 0;
+  }
+  .lettre-body {
+    background: var(--white);
+    padding: 3rem;
+    border-top: 4px solid var(--accent);
+  }
+  .lettre-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    gap: 2rem;
+  }
+  .lettre-from { line-height: 1.7; font-size: .88rem; color: var(--mid); }
+  .lettre-from strong { display: block; font-size: 1rem; color: var(--ink); font-weight: 600; }
+  .lettre-to { text-align: right; line-height: 1.7; font-size: .88rem; color: var(--mid); }
+  .lettre-to strong { display: block; font-size: 1rem; color: var(--ink); font-weight: 600; }
+  .lettre-date {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  .lettre-objet {
+    font-size: .82rem;
+    font-weight: 600;
+    margin-bottom: .3rem;
+  }
+  .lettre-ref {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lettre-body p {
+    font-size: .92rem;
+    line-height: 1.85;
+    color: var(--mid);
+    margin-bottom: 1.3rem;
+  }
+  .lettre-body p:first-of-type { color: var(--ink); }
+  .lettre-signature {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .sig-name {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ink);
+    letter-spacing: .04em;
+  }
+  .sig-title { font-size: .82rem; color: var(--muted); margin-top: .2rem; }
+
+  /* ── PARCOURS ────────────────────────────────────────── */
+  #parcours { background: var(--white); }
+  .parcours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .timeline { position: relative; }
+  .timeline-col-title {
+    font-family: var(--f-display);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: 88px;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-date {
+    font-family: var(--f-display);
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .05em;
+    padding-top: .1rem;
+    text-align: right;
+    line-height: 1.4;
+  }
+  .tl-content { position: relative; padding-left: 1.2rem; }
+  .tl-content::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 7px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--accent2);
+  }
+  .tl-org {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .2rem;
+  }
+  .tl-role {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    margin-bottom: .5rem;
+  }
+  .tl-desc {
+    font-size: .82rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .tl-tags {
+    display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem;
+  }
+  .tl-tag {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .25rem .6rem;
+    background: var(--light-bg);
+    color: var(--accent2);
+  }
+
+  /* ── COMPÉTENCES ─────────────────────────────────────── */
+  #competences { background: var(--accent2); }
+  #competences .section-title { color: var(--white); }
+  #competences .section-label { color: rgba(255,255,255,.5); }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .comp-card {
+    background: rgba(255,255,255,.03);
+    padding: 2rem 1.8rem;
+    transition: background .2s;
+  }
+  .comp-card:hover { background: rgba(255,255,255,.07); }
+  .comp-icon {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .comp-name {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--white);
+    margin-bottom: .6rem;
+  }
+  .comp-desc {
+    font-size: .78rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,.5);
+  }
+  .comp-bar {
+    margin-top: 1.2rem;
+    height: 2px;
+    background: rgba(255,255,255,.1);
+    position: relative;
+  }
+  .comp-bar-fill {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    background: var(--accent);
+  }
+
+  /* ── SIGNATURE PROJECT ───────────────────────────────── */
+  #projet { background: var(--cream); }
+  .projet-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .projet-visual {
+    background: var(--accent2);
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .projet-visual-text {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: rgba(255,255,255,.08);
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+    text-align: center;
+    line-height: .9;
+    position: absolute;
+    user-select: none;
+  }
+  .projet-kpi-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--rule);
+    position: relative; z-index: 1;
+    width: 80%; margin: 0 auto;
+  }
+  .kpi {
+    background: var(--accent2);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .kpi-num {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .kpi-label {
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-top: .3rem;
+    line-height: 1.4;
+  }
+  .projet-content {}
+  .projet-content p {
+    font-size: .9rem;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 1.2rem;
+  }
+  .projet-list { list-style: none; margin-top: 1.5rem; }
+  .projet-list li {
+    display: flex; gap: .8rem; align-items: flex-start;
+    font-size: .86rem;
+    line-height: 1.6;
+    color: var(--mid);
+    padding: .6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .projet-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: .05rem;
+  }
+
+  /* ── CONTACT ─────────────────────────────────────────── */
+  #contact { background: var(--ink); }
+  #contact .section-label { color: rgba(255,255,255,.35); }
+  #contact .section-title { color: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .contact-info {}
+  .contact-line {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    font-size: .9rem;
+    color: rgba(255,255,255,.6);
+  }
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,.05);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+    color: var(--accent);
+  }
+  .contact-val { color: var(--white); font-weight: 500; }
+  .contact-disponibilite {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(192,57,43,.15);
+    border-left: 3px solid var(--accent);
+  }
+  .dispo-label {
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .4rem;
+  }
+  .dispo-val { font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+  .contact-form {}
+  .form-group { margin-bottom: 1.2rem; }
+  .form-label {
+    display: block;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-bottom: .5rem;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    color: var(--white);
+    padding: .85rem 1rem;
+    font-family: var(--f-body);
+    font-size: .88rem;
+    outline: none;
+    transition: border-color .2s;
+    resize: none;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent);
+  }
+  .form-textarea { height: 130px; }
+  .form-btn {
+    width: 100%;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    font-family: var(--f-body);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .form-btn:hover { background: #a93226; }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    background: #111;
+    padding: 1.5rem clamp(1.5rem, 8vw, 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--f-display);
+    font-weight: 900;
+    font-size: .9rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+  }
+  .footer-note {
+    font-size: .72rem;
+    color: rgba(255,255,255,.25);
+    letter-spacing: .05em;
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp .7s ease both; }
+  .delay-1 { animation-delay: .15s; }
+  .delay-2 { animation-delay: .3s; }
+  .delay-3 { animation-delay: .45s; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .lettre-grid { grid-template-columns: 1fr; }
+    .lettre-meta { position: static; }
+    .parcours-grid { grid-template-columns: 1fr; }
+    .projet-inner { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .lettre-body { padding: 1.8rem; }
+    .lettre-header-info { flex-direction: column; }
+    .lettre-to { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">C. Florentin</div>
+  <ul class="nav-links">
+    <li><a href="#lettre">Lettre</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">Candidature — Lustral Groupe · Réf. od4hdm1tbk</p>
+    <h1 class="hero-name fade-up delay-1">
+      Christophe<span>Florentin</span>
+    </h1>
+    <p class="hero-title fade-up delay-2">Responsable<br>Communication Multicanal</p>
+    <div class="hero-stats fade-up delay-2">
+      <div class="stat-item">
+        <div class="stat-num">30</div>
+        <div class="stat-label">ans<br>d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25'</div>
+        <div class="stat-label">de Reims<br>mobilité totale</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">360°</div>
+        <div class="stat-label">print · digital<br>événementiel</div>
+      </div>
+    </div>
+    <div class="hero-cta fade-up delay-3">
+      <a href="#lettre" class="btn btn-primary">Lire ma lettre</a>
+      <a href="#parcours" class="btn btn-outline">Voir le parcours</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-bg-text">LUSTRAL</div>
+    <div class="hero-card">
+      <div class="hero-card-line">
+        <div class="hero-card-icon">📍</div>
+        <div class="hero-card-text">
+          <span class="hero-card-label">Localisation</span>
+          Guignicourt (02) — 25 min de Reims
+        </div>
+      </div>
+      <div class="hero-card-line">
+        <div class="hero-card-icon">📞</div>
+        <div class="hero-card-text">
+          <span class="hero-card-label">Mobile</span>
+          06 38 58 25 52
+        </div>
+      </div>
+      <div class="hero-card-line">
+        <div class="hero-card-icon">✉️</div>
+        <div class="hero-card-text">
+          <span class="hero-card-label">Email</span>
+          christopheflorentin33@gmail.com
+        </div>
+      </div>
+      <div class="hero-card-line">
+        <div class="hero-card-icon">💼</div>
+        <div class="hero-card-text">
+          <span class="hero-card-label">Disponibilité</span>
+          Disponible dès le 1er septembre 2026 — CDI
+        </div>
+      </div>
+      <div class="hero-card-line">
+        <div class="hero-card-icon">💶</div>
+        <div class="hero-card-text">
+          <span class="hero-card-label">Prétentions</span>
+          38 000 € brut / an
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTRE DE MOTIVATION -->
+<section id="lettre">
+  <p class="section-label">Document 01</p>
+  <h2 class="section-title">Lettre de <em>motivation</em></h2>
+
+  <div class="lettre-grid">
+    <aside class="lettre-meta">
+      <div class="lettre-meta-block">
+        <div class="meta-label">Poste visé</div>
+        <div class="meta-val">Chef de projet<br>Marketing opérationnel Groupe</div>
+      </div>
+      <div class="lettre-separator"></div>
+      <div class="lettre-meta-block">
+        <div class="meta-label">Entreprise</div>
+        <div class="meta-val">LUSTRAL<br>Siège social — Reims (51)</div>
+      </div>
+      <div class="lettre-separator"></div>
+      <div class="lettre-meta-block">
+        <div class="meta-label">Référence offre</div>
+        <div class="meta-val">od4hdm1tbk</div>
+      </div>
+      <div class="lettre-separator"></div>
+      <div class="lettre-meta-block">
+        <div class="meta-label">Contrat</div>
+        <div class="meta-val">CDI — Disponible dès le 1er septembre 2026</div>
+      </div>
+    </aside>
+
+    <div class="lettre-body">
+      <div class="lettre-header-info">
+        <div class="lettre-from">
+          <strong>Christophe Florentin</strong>
+          45 rue des Bois<br>
+          02190 Guignicourt<br>
+          06 38 58 25 52<br>
+          christopheflorentin33@gmail.com
+        </div>
+        <div class="lettre-to">
+          <strong>Direction des Ressources Humaines</strong>
+          Groupe Lustral<br>
+          Siège social<br>
+          Reims (51)
+        </div>
+      </div>
+
+      <div class="lettre-date">Guignicourt, le 20 juin 2026</div>
+
+      <div class="lettre-objet">Objet : Candidature au poste de Chef de projet Marketing opérationnel Groupe</div>
+      <div class="lettre-ref">Référence : od4hdm1tbk — publiée le 1er juin 2026</div>
+
+      <p>Madame, Monsieur,</p>
+
+      <p>
+        Entreprise familiale de référence dans le Grand Est, Lustral m'a immédiatement retenu par l'ambition 
+        de son projet : le lancement imminent d'une nouvelle marque Groupe, au cœur même des missions décrites. 
+        C'est précisément le type de défi opérationnel que je recherche, et pour lequel trente ans de pratique 
+        en pilotage de projets de communication complexes me donnent des repères solides.
+      </p>
+
+      <p>
+        Tout au long de ma carrière, j'ai conçu et déployé des stratégies de communication globales, 
+        piloté des lancements de supports et d'identités de marque, coordonné des prestataires extérieurs 
+        — agences, imprimeurs, développeurs — et animé des communautés internes via des outils digitaux dédiés. 
+        J'ai également organisé et produit des événements de visibilité externe, développé des partenariats 
+        territoriaux, et géré l'intégralité du cycle budgétaire de mon service, de la commande à la clôture.
+      </p>
+
+      <p>
+        Ce qui distingue mon profil, c'est une capacité à travailler simultanément sur les deux niveaux 
+        du marketing opérationnel : la réflexion stratégique (positionnement, axes de message, cohérence 
+        d'image) et l'exécution concrète (brief prestataire, suivi de production, reporting mensuel chiffré). 
+        Je ne délègue pas la compréhension du fond : je porte les projets de leur conception à leur mise en marché.
+      </p>
+
+      <p>
+        L'animation de votre application interne Lustral&amp;Moi — jeux concours, newsletter, vie de marque 
+        employeur — correspond exactement à des dispositifs que j'ai construits et animés. La gestion 
+        simultanée de la communication externe (site, réseaux, salons) et de la communication interne est 
+        précisément ce que j'ai pratiqué en continu depuis 2000.
+      </p>
+
+      <p>
+        Basé à Guignicourt, à quarante-cinq minutes de votre siège rémois, je suis disponible immédiatement 
+        pour un CDI. Je serais heureux d'échanger avec vous sur la façon dont mon expérience peut contribuer 
+        à la réussite du lancement de votre nouvelle marque et au rayonnement du Groupe Lustral.
+      </p>
+
+      <p>Dans cette attente, je vous adresse, Madame, Monsieur, mes sincères salutations.</p>
+
+      <div class="lettre-signature">
+        <div class="sig-name">Christophe Florentin</div>
+        <div class="sig-title">Responsable Communication Multicanal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section id="parcours">
+  <p class="section-label">Document 02</p>
+  <h2 class="section-title">Parcours <em>professionnel</em></h2>
+
+  <div class="parcours-grid">
+    <!-- Expériences -->
+    <div class="timeline">
+      <div class="timeline-col-title">Expériences</div>
+
+      <div class="tl-item">
+        <div class="tl-date">2017<br>→ 2026</div>
+        <div class="tl-content">
+          <div class="tl-org">Communauté de communes Picardie des Châteaux</div>
+          <div class="tl-role">Responsable Communication Multicanal</div>
+          <div class="tl-desc">
+            Pilotage de la stratégie de communication 360° de la structure — définition des axes, 
+            orchestration des projets print et digitaux, coordination d'un réseau de prestataires externes. 
+            Direction éditoriale du magazine intercommunal, gestion du site web et des réseaux sociaux, 
+            animation d'un intranet collaboratif. Organisation d'événements de visibilité. Reporting 
+            mensuel et gestion budgétaire du service.
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Stratégie</span>
+            <span class="tl-tag">Chef de projet</span>
+            <span class="tl-tag">Digital</span>
+            <span class="tl-tag">Budget</span>
+            <span class="tl-tag">Événementiel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2000<br>→ 2017</div>
+        <div class="tl-content">
+          <div class="tl-org">Communauté de communes des Vallons d'Anizy</div>
+          <div class="tl-role">Chargé de Communication Multimédia</div>
+          <div class="tl-desc">
+            Conception et production des supports de communication print et multimédia — magazine, 
+            rapports d'activité, affiches, plaquettes de services. Création et mise à jour des supports 
+            digitaux de la structure. Coordination avec les prestataires d'impression et les agences.
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Print</span>
+            <span class="tl-tag">Multimédia</span>
+            <span class="tl-tag">Édition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">1996<br>→ 2000</div>
+        <div class="tl-content">
+          <div class="tl-org">Centres sociaux — Ville de Reims</div>
+          <div class="tl-role">Chargé de Mission Communication & Animation</div>
+          <div class="tl-desc">
+            Conception des supports de communication de l'association. Pilotage de projets événementiels 
+            et culturels (ateliers d'écriture, projet photo, vernissage, forum des associations, journal jeunes).
+          </div>
+          <div class="tl-tags">
+            <span class="tl-tag">Événementiel</span>
+            <span class="tl-tag">Animation</span>
+            <span class="tl-tag">Reims</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formations + Compétences techniques -->
+    <div>
+      <div class="timeline">
+        <div class="timeline-col-title">Formations</div>
+
+        <div class="tl-item">
+          <div class="tl-date">LP</div>
+          <div class="tl-content">
+            <div class="tl-org">Université de Limoges</div>
+            <div class="tl-role">Licence Pro — Gestion de projets de communication</div>
+            <div class="tl-desc">
+              Spécialité Servicetique — Assistance à maîtrise d'ouvrage, conduite de projet, 
+              accompagnement au changement numérique.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">BTS</div>
+          <div class="tl-content">
+            <div class="tl-org">Esupcom' Reims</div>
+            <div class="tl-role">BTS Communication</div>
+            <div class="tl-desc">
+              Stratégies de communication, plans média, création publicitaire, 
+              gestion de projets, expression visuelle.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <div class="timeline-col-title" style="font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--rule);">Outils maîtrisés</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+          <span class="tl-tag">Adobe InDesign</span>
+          <span class="tl-tag">Adobe Photoshop</span>
+          <span class="tl-tag">Adobe Illustrator</span>
+          <span class="tl-tag">Adobe Premiere</span>
+          <span class="tl-tag">Canva Pro</span>
+          <span class="tl-tag">WordPress</span>
+          <span class="tl-tag">Réseaux sociaux</span>
+          <span class="tl-tag">Emailing</span>
+          <span class="tl-tag">Google Analytics</span>
+          <span class="tl-tag">Suite Office 365</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES CLÉS -->
+<section id="competences">
+  <p class="section-label">Document 03</p>
+  <h2 class="section-title" style="color:var(--white);">Compétences <em>clés</em></h2>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-icon">🚀</div>
+      <div class="comp-name">Lancement de marque</div>
+      <div class="comp-desc">Positionnement, naming, identité visuelle, plan de mise en marché. Coordination des parties prenantes de la conception au déploiement.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:90%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">📐</div>
+      <div class="comp-name">Pilotage de projets</div>
+      <div class="comp-desc">Chef de projet opérationnel — brief, planning, coordination prestataires (agences, imprimeurs, freelances), suivi et reporting mensuel.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:95%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">📱</div>
+      <div class="comp-name">Communication digitale</div>
+      <div class="comp-desc">Animation de plateformes internes (intranet, app collaborateurs), réseaux sociaux, site web, newsletters, campagnes d'emailing.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:88%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🎯</div>
+      <div class="comp-name">Stratégie marketing</div>
+      <div class="comp-desc">Définition d'axes éditoriaux, ciblage, choix des canaux, cohérence d'image de marque sur l'ensemble des supports et touchpoints.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:85%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🎪</div>
+      <div class="comp-name">Événementiel & partenariats</div>
+      <div class="comp-desc">Organisation d'événements internes et externes — salons, inaugurations, opérations partenaires. Développement de partenariats locaux.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:80%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">✍️</div>
+      <div class="comp-name">Rédaction & brand content</div>
+      <div class="comp-desc">Copywriting multicanal, prises de parole dirigeants, contenus éditoriaux adaptés à chaque support et chaque audience cible.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:92%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">🎨</div>
+      <div class="comp-name">Création & production graphique</div>
+      <div class="comp-desc">Suite Adobe CC — InDesign, Photoshop, Illustrator, Premiere. Conception d'identités visuelles, supports print et digitaux, vidéo.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:90%"></div></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-icon">📊</div>
+      <div class="comp-name">Reporting & performance</div>
+      <div class="comp-desc">Analyse des performances de communication, tableaux de bord, reporting mensuel chiffré, suivi budgétaire et optimisation des investissements.</div>
+      <div class="comp-bar"><div class="comp-bar-fill" style="width:82%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISE EN PERSPECTIVE LUSTRAL -->
+<section id="projet">
+  <p class="section-label">Document 04</p>
+  <h2 class="section-title">Ce que j'apporte <em>à Lustral</em></h2>
+
+  <div class="projet-inner">
+    <div class="projet-visual">
+      <div class="projet-visual-text">BRAND<br>LAUNCH<br>2026</div>
+      <div class="projet-kpi-grid">
+        <div class="kpi">
+          <div class="kpi-num">30</div>
+          <div class="kpi-label">ans d'expé-<br>rience</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">25'</div>
+          <div class="kpi-label">de Reims<br>(mobilité totale)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">360°</div>
+          <div class="kpi-label">print · digital<br>événement</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">01/09</div>
+          <div class="kpi-label">disponible<br>dès sept. 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projet-content">
+      <p>
+        Lustral lance une nouvelle marque. C'est un moment charnière qui demande un profil hybride : 
+        quelqu'un capable de structurer le projet de bout en bout tout en produisant opérationnellement. 
+        C'est exactement ce que je fais depuis trente ans.
+      </p>
+      <p>
+        Ma valeur ajoutée concrète sur ce poste :
+      </p>
+      <ul class="projet-list">
+        <li>Pilotage du lancement de marque : positionnement, identité, plan de déploiement, coordination des prestataires</li>
+        <li>Animation de Lustral&amp;Moi : jeux concours, newsletters, contenus engageants pour les 3 000 collaborateurs</li>
+        <li>Gestion du site internet et des réseaux sociaux en lien avec les agences partenaires</li>
+        <li>Organisation des événements internes et externes, développement de partenariats locaux dans le Grand Est</li>
+        <li>Reporting mensuel chiffré à destination du Directeur des Opérations</li>
+        <li>Accompagnement des différents services dans leurs besoins de communication</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Entrons en contact</p>
+  <h2 class="section-title">Disponible pour <em>un échange</em></h2>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-line">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.2rem;">Téléphone</div>
+          <span class="contact-val">06 38 58 25 52</span>
+        </div>
+      </div>
+      <div class="contact-line">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.2rem;">Email</div>
+          <span class="contact-val">christopheflorentin33@gmail.com</span>
+        </div>
+      </div>
+      <div class="contact-line">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.2rem;">Localisation</div>
+          <span class="contact-val">Guignicourt (02) — 25 min de Reims</span>
+        </div>
+      </div>
+      <div class="contact-disponibilite">
+        <div class="dispo-label">Disponibilité</div>
+        <div class="dispo-val">
+          Disponible dès le 1er septembre 2026 pour un CDI.<br>
+          Mobilité totale sur Reims et la zone Grand Est.
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label" for="f-nom">Nom</label>
+        <input class="form-input" type="text" id="f-nom" placeholder="Votre nom">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-email">Email</label>
+        <input class="form-input" type="email" id="f-email" placeholder="votre@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-msg">Message</label>
+        <textarea class="form-textarea" id="f-msg" placeholder="Votre message..."></textarea>
+      </div>
+      <button class="form-btn">Envoyer le message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Christophe Florentin</div>
+  <div class="footer-note">Candidature Responsable Communication Multicanal — Groupe Lustral · 2026</div>
+</footer>
+
+</body>
+</html>
